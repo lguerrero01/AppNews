@@ -6,7 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./list-news.component.css']
 })
 export class ListNewsComponent implements OnInit {
-
+  public p: number = 1;
   @Input() listNews: any;
 
   constructor() { }
