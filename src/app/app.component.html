@@ -1,15 +1,15 @@
 <app-navbar [title]="title"></app-navbar>
 <div class="container">
   <div class="row">
-    <div class="col-3">
+    <div class="col-12 col-md-4">
       <app-form (selectedParams)="searchNews($event)"></app-form>
     </div>
-    <div class="col tex-center">
+    <div class="col-12 col-md-8 tex-center">
       <div class="container m-3 text-center">
         <app-list-news [listNews]="listNews"></app-list-news>
+        <app-spinner *ngIf="loading"></app-spinner>
       </div>
     </div>
     
-    <app-spinner *ngIf="loading"></app-spinner>
   </div>
 </div>
