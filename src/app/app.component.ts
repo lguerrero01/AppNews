@@ -18,17 +18,15 @@ export class AppComponent {
     this.loading = true;
     this.listNews = [];
 
-    setTimeout(() => {
-      this.newService.getNews(params).subscribe(
-        (data) => {
-          this.loading = false;
-          this.listNews = data.articles;
-        },
-        (error) => {
-          console.log(error);
-          this.loading = false;
-        }
-      );
-    }, 1000);
+    this.newService.getNews(params).subscribe(
+      (data) => {
+        this.loading = false;
+        this.listNews = data.articles;
+      },
+      (error) => {
+        console.log(error);
+        this.loading = false;
+      }
+    );
   }
 }
