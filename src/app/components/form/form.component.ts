@@ -35,8 +35,8 @@ export class FormComponent implements OnInit {
 
   public searchNews() {
     const PARAMS = {
-      categoria: this.selectedCategory,
-      pais: this.selectedCountry,
+      category: this.selectedCategory,
+      country: this.selectedCountry,
     };
 
     this.selectedParams.emit(PARAMS);

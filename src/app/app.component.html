@@ -3,12 +3,13 @@
   <div class="row">
     <div class="col-3">
       <app-form (selectedParams)="searchNews($event)"></app-form>
-
     </div>
-    <div class="col-9">
-      <app-spinner></app-spinner>
-      <app-list-news></app-list-news>
+    <div class="col tex-center">
+      <div class="container m-3 text-center">
+        <app-list-news [listNews]="listNews"></app-list-news>
+      </div>
     </div>
-
+    
+    <app-spinner *ngIf="loading"></app-spinner>
   </div>
 </div>
