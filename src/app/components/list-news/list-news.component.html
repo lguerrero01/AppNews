@@ -1,1 +1,19 @@
-<p>list-news works!</p>
+<div class="row row-cols-1 row-cols-md-3 g-3 mt-4">
+    <div *ngFor="let news of listNews  | paginate: { itemsPerPage: 3, currentPage: p , totalItems: listNews.length}" class="col">
+        <div class="card">
+            <img [src]="news.urlToImage" class="card-img-top" alt="...">
+            <div class="card-body">
+                <span class="badge bg-primary mb-1">{{ news.source.name }}</span>
+                <h5 class="card-title">{{ news.title }}</h5>
+                <p class="card-text">{{ news.description }}</p>
+                <a [href]="news.url" target="_blank" class="btn btn-primary btn-block">Ver Noticia</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container" *ngIf="listNews.length == 0">
+    <div class="row">
+        <h2>No hay noticias para mostrar</h2>
+    </div>
+</div>
+<pagination-controls  (pageChange)="p = $event"></pagination-controls>
