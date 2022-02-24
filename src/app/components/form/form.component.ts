@@ -6,7 +6,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./form.component.css'],
 })
 export class FormComponent implements OnInit {
-  @Output() parametrosSeleccionados = new EventEmitter<any>();
+  @Output() selectedParams = new EventEmitter<any>();
 
   public selectedCategory: string = 'general';
   public selectedCountry: string = 'ar';
@@ -32,13 +32,13 @@ export class FormComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
-  
- public searchNews() {
-    const PARAMENTROS = {
+
+  public searchNews() {
+    const PARAMS = {
       categoria: this.selectedCategory,
       pais: this.selectedCountry,
     };
 
-    this.parametrosSeleccionados.emit(PARAMENTROS);
+    this.selectedParams.emit(PARAMS);
   }
 }
