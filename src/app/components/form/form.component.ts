@@ -1,15 +1,44 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
-  styleUrls: ['./form.component.css']
+  styleUrls: ['./form.component.css'],
 })
 export class FormComponent implements OnInit {
+  @Output() parametrosSeleccionados = new EventEmitter<any>();
 
-  constructor() { }
+  public selectedCategory: string = 'general';
+  public selectedCountry: string = 'ar';
 
-  ngOnInit(): void {
+  public categories: any[] = [
+    { value: 'general', name: 'General' },
+    { value: 'business', name: 'Negocios' },
+    { value: 'entertainment', name: 'Entretenimiento' },
+    { value: 'health', name: 'Salud' },
+    { value: 'science', name: 'Ciencia' },
+    { value: 'sports', name: 'Deportes' },
+    { value: 'technology', name: 'Tecnología' },
+  ];
+
+  public countries: any[] = [
+    { value: 'ar', name: 'Argentina' },
+    { value: 'br', name: 'Brasil' },
+    { value: 'fr', name: 'Francia' },
+    { value: 'hu', name: 'Hungria' },
+    { value: 'mx', name: 'Mexico' },
+    { value: 'gb', name: 'Reino Unido' },
+  ];
+  constructor() {}
+
+  ngOnInit(): void {}
+  
+ public searchNews() {
+    const PARAMENTROS = {
+      categoria: this.selectedCategory,
+      pais: this.selectedCountry,
+    };
+
+    this.parametrosSeleccionados.emit(PARAMENTROS);
   }
-
 }
