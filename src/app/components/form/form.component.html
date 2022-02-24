@@ -1,1 +1,29 @@
-<p>form works!</p>
+<div class="jumbotron mt-5">
+    <div class="row mt-5">
+        <h2 class="heading">Filtra Noticias por pais y categoria</h2>
+        <div class="col">
+            <form (ngSubmit)="searchNews()">
+                <div class="row m-2">
+                    <div class="form-group">
+                        <select name="categories" [(ngModel)]="selectedCategory" class="form-control form-control-lg">
+                            <option [value]="item.value" *ngFor="let item of categories">{{ item.name }}</option>
+                        </select>
+                    </div>
+
+                </div>
+                <div class="row m-2">
+                    <div class="form-group">
+                        <select name="country" [(ngModel)]="selectedCountry" class="form-control form-control-lg">
+                            <option [value]="country.value" *ngFor="let country of countries"> {{ country.name }}</option>
+                        </select>
+                    </div>
+
+                </div>
+                <div class="row mt-3">
+                    <button type="submit" class="btn btn-primary btn-block btn-lg">Buscar</button>
+                    
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
